@@ -1,0 +1,29 @@
+
+.headerRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 48px;
+    border: 1px solid rgba(38, 40, 66, 0.12);
+
+}
+
+.month {
+    height: 24px;
+    border: 1px solid rgba(38, 40, 66, 0.12);
+
+}
+
+.days {
+    display: flex;
+    flex-direction: row;
+    height: 24px;
+    border: 1px solid rgba(38, 40, 66, 0.12);
+
+}
+
+.day {
+    height: 24px;
+    width: 14px;
+    border: 1px solid rgba(38, 40, 66, 0.12);
+}

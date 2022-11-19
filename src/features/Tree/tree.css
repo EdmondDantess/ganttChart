@@ -1,0 +1,7 @@
+.treeWrap {
+    position: absolute;
+    top: 124px;
+    width: 390px;
+    height: 510px;
+    border: 1px solid red;
+}

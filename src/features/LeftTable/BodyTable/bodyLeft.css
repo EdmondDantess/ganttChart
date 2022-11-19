@@ -1,0 +1,21 @@
+.leftTable {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px rgba(38, 40, 66, 0.12);
+    width: 390px;
+    height: 615px;
+
+}
+
+.leftTable .head {
+    height: 48px;
+    width: 390px;
+    background: #F7F8FC;
+    border: 1px solid rgba(38, 40, 66, 0.12);
+    border-radius: 10px 0 0 0;
+}
+
+.leftBody {
+    width: 100%;
+    height: 100%;
+}
