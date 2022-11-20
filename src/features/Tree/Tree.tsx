@@ -22,13 +22,20 @@ export const Tree = (props: TreePropsType) => {
         return d.map((obj, index) => {
             const lenghtBlocktime = getCountofDays(`${props.dataForRenderTree[0][0].startDate.slice(0, 2)}/01/${obj.startDate.slice(6, 10)}`, obj.startDate)
             return <div key={index} style={{position: 'relative', height: '40px'}}>
-                {open && !obj.isOpen ? <>
+                {open  ? <>
                     <div className={'textTreeLeft'} onClick={() => {
-                        //   setOpen(false)
-                        //    console.log(copyArr.slice(0, i+1))
-                        let res = copyArr.filter((c, indexF) => i+1>indexF )
-                       setA(res)
-                        console.log(res)
+                        let value =     obj.isOpen
+               if (!value) {
+                   obj.isOpen=!value
+                   let res = copyArr.filter((c, indexF) => i+1>indexF )
+                   setA(res)
+               } else {
+                   obj.isOpen=!value
+                   setA([...props.dataForRenderTree])
+               }
+
+
+                        console.log(index)
                     }}>
                            <span
                                style={{position: 'absolute', margin: '10px 60px', paddingLeft: `${0 + i * 20}px`}}
