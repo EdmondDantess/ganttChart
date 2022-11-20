@@ -107,7 +107,6 @@ function App() {
             let currentYear = dataPeriod.startYear
             while (i <= countMonth) {
                 i++
-                console.log(i)
                 let dataForPush = getDaysArray(dataPeriod.startYear, currentMonth + 1)
                 currentMonth = currentMonth + 1
                 if (currentMonth === 12) {
