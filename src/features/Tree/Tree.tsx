@@ -23,7 +23,7 @@ export const Tree = (props: TreePropsType) => {
             const lenghtBlocktime = getCountofDays(`${props.dataForRenderTree[0][0].startDate.slice(0, 2)}/01/${obj.startDate.slice(6, 10)}`, obj.startDate)
             return <div key={index} style={{position: 'relative', height: '40px'}}>
                 {open  ? <>
-                    <div className={'textTreeLeft'} onClick={() => {
+                    <div className={'textTreeLeft'} onClick={() => {             //сворачиваем разворачиваем наше дерево по онклику
                         let value =     obj.isOpen
                if (!value) {
                    obj.isOpen=!value
@@ -33,9 +33,6 @@ export const Tree = (props: TreePropsType) => {
                    obj.isOpen=!value
                    setA([...props.dataForRenderTree])
                }
-
-
-                        console.log(index)
                     }}>
                            <span
                                style={{position: 'absolute', margin: '10px 60px', paddingLeft: `${0 + i * 20}px`}}
