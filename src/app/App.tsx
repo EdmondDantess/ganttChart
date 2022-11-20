@@ -55,14 +55,13 @@ function App() {
         }
     )
     const funcGetFromBack = async () => {
-        setDataFromBack(await getData())
+        setDataFromBack( await getData())
     }
 
     useEffect(() => {
         funcGetFromBack()
     }, [])
-
-    const dataForRenderTree = dataForDrawTree(dataFromBack)
+    let dataForRenderTree = dataForDrawTree(dataFromBack)
 
     const dataPeriod = {                                         //Получаю из строки даты начало и конца и перевожу в number даты
         startDay: +dataFromBack.period.slice(0, 2),
@@ -126,7 +125,7 @@ function App() {
                 <BodyLeft/>
                 <BodyRight dataDays={dataForTable}/>
             </div>
-            <Tree dataForRenderTree={dataForRenderTree}/>
+            <Tree dataForRenderTree={dataForRenderTree}  />
         </>
     );
 }

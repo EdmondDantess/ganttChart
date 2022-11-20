@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './tree.css'
 import {getCountofDays} from '../../common/utils/getCountofDays';
+import {Simulate} from 'react-dom/test-utils';
+import copy = Simulate.copy;
 
 type TreePropsType = {
     dataForRenderTree: [{ isOpen: boolean, days: number, title: string, startDate: string, endDate: string }][]
@@ -8,16 +10,25 @@ type TreePropsType = {
 
 export const Tree = (props: TreePropsType) => {
     const colors = ['#E2EBFF', '#FFF2E0', '#CFF0D6', '#CFF0D6', '#FFF2E0']
-    let [open, setOpen] = useState(true)
-    let [tree, setTree] = useState(props.dataForRenderTree)
+    let [open, setOpen] = useState(false)
+    let copyArr = [...props.dataForRenderTree]
+    let [a, setA] = useState(copyArr)
 
-    const renderData = props.dataForRenderTree.map((d, i) => {
+    useEffect(()=>{
+        setA([...copyArr])
+    }, [open])
+
+    const renderData = a.map((d, i) => {
         return d.map((obj, index) => {
             const lenghtBlocktime = getCountofDays(`${props.dataForRenderTree[0][0].startDate.slice(0, 2)}/01/${obj.startDate.slice(6, 10)}`, obj.startDate)
             return <div key={index} style={{position: 'relative', height: '40px'}}>
                 {open && !obj.isOpen ? <>
                     <div className={'textTreeLeft'} onClick={() => {
-                        setOpen(false)
+                        //   setOpen(false)
+                        //    console.log(copyArr.slice(0, i+1))
+                        let res = copyArr.filter((c, indexF) => i+1>indexF )
+                       setA(res)
+                        console.log(res)
                     }}>
                            <span
                                style={{position: 'absolute', margin: '10px 60px', paddingLeft: `${0 + i * 20}px`}}
