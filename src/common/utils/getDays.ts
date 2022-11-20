@@ -1,4 +1,4 @@
-export function getDaysArray(year: number, month: number) {
+export function getDaysArray(year: number, month: number) {                   //функция которая высчитывает сколько дней в определённом месяце и возвращает нам массив сколько дней в месяце какой день год и месяц
     let numDaysInMonth, daysInWeek, daysIndex, index, i, l, daysArray;
     const februaryDay = year % 4 === 0 ? 29 : 28
     numDaysInMonth = [31, februaryDay, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -13,7 +13,7 @@ export function getDaysArray(year: number, month: number) {
             number: (i + 1),
             day: daysInWeek[index!++]
         })
-        if (index == 7) index = 0;
+        if (index === 7) index = 0;
     }
     return daysArray;
 }

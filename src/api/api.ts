@@ -8,11 +8,7 @@ export const getData = async () => {
     return res.data
 }
 
-export type DataType = any & {
-    project: string;
-    period: string;
-    chart: DataTypeChart;
-}
+
 export type DataTypeChartSubSubSubSub = {
     id: number;
     title: string;
@@ -32,6 +28,12 @@ export type DataTypeChartSubSub = {
     period_start: string;
     period_end: string;
     sub: DataTypeChartSubSubSub[];
+}
+
+export type DataType = any & {
+    project: string;
+    period: string;
+    chart: DataTypeChart;
 }
 export type DataTypeChartSub = {
     id: number;
