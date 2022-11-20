@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {HeaderRight} from '../HeaderTable/HeaderRight';
 import './bodyRight.css'
 import {GetDaysArrays} from '../../../common/utils/getDays';
@@ -9,12 +9,12 @@ type DataDays = {
 }
 
 export const BodyRight = (props: DataDays) => {
-
+let [hide, setHide] = useState<string | any>('clip')
     let month = dataWeeksYearsMonth(props.dataDays)
 
     return (
         <div className={'bodyRight'}>
-            <div className={'headRow'}>
+            <div className={'headRow'} style={{overflowX: hide}} >
                 {
                     month.month.map((d: any, index: number) => {
 
@@ -29,7 +29,7 @@ export const BodyRight = (props: DataDays) => {
                         </div>
                     })}
             </div>
-
+            <div className={'fade'} style={{width: hide ==='clip' ? '10px': 0}} onClick={()=>setHide('')}></div>
 
         </div>
     );

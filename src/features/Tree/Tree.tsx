@@ -15,13 +15,13 @@ export const Tree = (props: TreePropsType) => {
         return d.map((obj, index) => {
             const lenghtBlocktime = getCountofDays(`${props.dataForRenderTree[0][0].startDate.slice(0, 2)}/01/${obj.startDate.slice(6, 10)}`, obj.startDate)
             return <div key={index} style={{position: 'relative', height: '40px'}}>
-                {open ? <>
-                    <div className={'textTreeLeft'}>
+                {open && !obj.isOpen ? <>
+                    <div className={'textTreeLeft'} onClick={() => {
+                        setOpen(false)
+                    }}>
                            <span
                                style={{position: 'absolute', margin: '10px 60px', paddingLeft: `${0 + i * 20}px`}}
-                               onClick={() => {
-                                   setOpen(false)
-                               }}>
+                           >
                         {i !== props.dataForRenderTree.length - 1 ? (obj.isOpen ? '❯' : 'ᐯ') : ''}
                                {obj.title}</span>
                     </div>
@@ -52,13 +52,18 @@ export const Tree = (props: TreePropsType) => {
 
             {!open ? <>
                 <div style={{height: '40px'}}>
-                    <div className={'textTreeLeft'} style={{position: 'absolute', top: '0px'}}><span
+                    <div onClick={() => setOpen(true)} className={'textTreeLeft'} style={{
+                        position: 'absolute',
+                        top: '0px',
+                        border: '1px solid rgba(38, 40, 66, 0.12)',
+                        width: '390px'
+                    }}><span
                         style={{
                             position: 'absolute',
                             margin: '10px 60px',
                             whiteSpace: 'nowrap'
                         }}
-                        onClick={() => setOpen(true)}
+
                     >❯ {props.dataForRenderTree[0][0].title}</span></div>
                     <div>
                         <div style={{
